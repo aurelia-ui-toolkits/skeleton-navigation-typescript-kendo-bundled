@@ -13,6 +13,19 @@ module.exports = {
         "rev": false
       }
     },
+    "dist/plugins": {
+      "includes": [
+        "[aurelia-kendoui-bridge]",
+        "[aurelia-kendoui-bridge/**/*.js]",
+        "aurelia-kendoui-bridge/**/*.html!text",
+      ],
+      "options": {
+        "inject": true,
+        "minify": true,
+        "depCache": false,
+        "rev": false
+      }
+    },
     "dist/aurelia": {
       "includes": [
         "aurelia-framework",
@@ -37,6 +50,16 @@ module.exports = {
         "minify": true,
         "depCache": false,
         "rev": false
+      }
+    },
+    "dist/kendo-build": {
+      "includes": ["kendo-ui/js/*.min.js"],
+      "excludes": [
+      ],
+      "options": {
+        "inject": true,
+        "minify": true,
+        "rev": true
       }
     }
   }
