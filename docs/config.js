@@ -222,11 +222,9 @@ System.config({
     }
   },
   bundles: {
-    "kendo-build-607d3d9260.js": [
+    "kendo-build-eed2dbc553.js": [
       "kendo-ui/js/jquery.min.js",
-      "kendo-ui/js/jszip.min.js",
-      "kendo.all.min",
-      "kendo.custom.min"
+      "kendo-ui/js/jszip.min.js"
     ],
     "app-build.js": [
       "app.html!github:systemjs/plugin-text@0.0.8.js",

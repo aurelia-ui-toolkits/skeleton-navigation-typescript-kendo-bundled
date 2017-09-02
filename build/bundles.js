@@ -54,8 +54,7 @@ module.exports = {
     },
     "dist/kendo-build": {
       "includes": ["kendo-ui/js/*.min.js"],
-      "excludes": [
-      ],
+      "excludes": ["kendo-ui/js/kendo.all.min.js"],
       "options": {
         "inject": true,
         "minify": true,
