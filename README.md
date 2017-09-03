@@ -49,7 +49,7 @@ Unlike the situation in the **[typescript-kendo](https://aurelia-ui-toolkits.git
 ```
 jspm install css aurelia-kendoui-bridge
 ```
-was run already (note the absence of the `kendo-ui` item, since this SDK is already a part of this application.
+was run already (note the absence of the `kendo-ui` item, since this **[SDK](https://github.com/aurelia-ui-toolkits/skeleton-navigation-typescript-kendo-bundled/tree/master/kendo-sdk)** is already a part of this application.
 
 3. The just installed kendo-ui-bridge is **[activated](https://github.com/aurelia-tools/atb-samples/blob/master/skeleton-typescript-kendo/src/main.ts#L8)** in the **[`main.ts`](https://github.com/aurelia-tools/atb-samples/blob/master/skeleton-typescript-kendo/src/main.ts)** class
 
