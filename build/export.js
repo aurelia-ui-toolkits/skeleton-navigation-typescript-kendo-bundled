@@ -7,11 +7,17 @@ module.exports = {
     'config.js',
     'favicon.ico',
     'LICENSE',
-    "jspm_packages/npm/bluebird@3.4.1/js/browser/bluebird.min.js", 
     'jspm_packages/system.js',
+    'jspm_packages/system.js.map',
     'jspm_packages/system-polyfills.js',
     'jspm_packages/system-csp-production.js',
-    'styles/styles.css'
+    'jspm_packages/github/systemjs/plugin-css@0.1.35.js',
+    'jspm_packages/github/systemjs/plugin-css@0.1.35/**',
+    'styles/styles.css',
+    'kendo-sdk/js/kendo.all.min.js',
+    'kendo-sdk/js/kendo.all.min.js.map',
+    'kendo-sdk/styles/kendo.bootstrap.min.css',
+    'kendo-sdk/styles/kendo.common.min.css',
   ],
   // this section lists any jspm packages that have
   // unbundled resources that need to be exported.
