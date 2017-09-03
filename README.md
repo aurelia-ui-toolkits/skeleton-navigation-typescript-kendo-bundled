@@ -22,7 +22,7 @@ The most recent release of the skeleton typescript app is 1.2.2 available as zip
 Image 1
 </p>
 
-The content of this file defined by the green rectangle needs to be removed in order to correctly generate the Typsecript type definition files - process that takes place while executing the command **`npm install`**. As **[this line](https://github.com/aurelia-tools/atb-samples/blob/master/skeleton-typescript/package.json#L24)** indicates **`npm**` will run the command **`typings install`** before any other actions it takes.
+The content of this file defined by the green rectangle needs to be removed in order to correctly generate the Typsecript type definition files - process that takes place while executing the command **`npm install`**. As **[this line](https://github.com/aurelia-tools/atb-samples/blob/master/skeleton-typescript/package.json#L24)** indicates **`npm`** will run the command **`typings install`** before any other actions it takes.
 
 Running **`typings install`** (note that **`typings`** is a locally installed command line tool) reads the file **`typings.json`** (which we just edited to remove the **`globalDependencies`** section, that is not needed any more) and creates the new "run time" folder **`typings`** shown below:
 
