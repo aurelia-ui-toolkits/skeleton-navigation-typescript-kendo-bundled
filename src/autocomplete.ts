@@ -9,7 +9,7 @@ export class autocomplete {
       transport: {
         read: {
           dataType: 'jsonp',
-          url: '//demos.telerik.com/kendo-ui/service/Customers'
+          url: 'https://demos.telerik.com/kendo-ui/service/Customers'
         }
       }
     };
