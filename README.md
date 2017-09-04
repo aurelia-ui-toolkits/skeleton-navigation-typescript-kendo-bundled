@@ -46,24 +46,26 @@ Unlike the situation in the **[typescript-kendo](https://aurelia-ui-toolkits.git
 
 1. The command
 
-```
-jspm install css aurelia-kendoui-bridge
-```
-was run already (note the absence of the `kendo-ui` item, since this **[SDK](https://github.com/aurelia-ui-toolkits/skeleton-navigation-typescript-kendo-bundled/tree/master/kendo-sdk)** is already a part of this application.
+    ```
+    jspm install css aurelia-kendoui-bridge
+    ```
+    was run already (note the absence of the `kendo-ui` item, since this **[SDK](https://github.com/aurelia-ui-toolkits/skeleton-navigation-typescript-kendo-bundled/tree/master/kendo-sdk)** is already a part of this application.
 
-3. The just installed kendo-ui-bridge is **[activated](https://github.com/aurelia-tools/atb-samples/blob/master/skeleton-typescript-kendo/src/main.ts#L8)** in the **[`main.ts`](https://github.com/aurelia-tools/atb-samples/blob/master/skeleton-typescript-kendo/src/main.ts)** class
+1. The just installed kendo-ui-bridge is **[activated](https://github.com/aurelia-tools/atb-samples/blob/master/skeleton-typescript-kendo/src/main.ts#L8)** in the **[`main.ts`](https://github.com/aurelia-tools/atb-samples/blob/master/skeleton-typescript-kendo/src/main.ts)** class
 
-4. A new KendoUI Bridge component **[`Autocomplete`](http://aurelia-ui-toolkits.github.io/demo-kendo/#/samples/autocomplete-basic-use)** is added (**[`autocomplete.html`](https://github.com/aurelia-tools/atb-samples/blob/master/skeleton-typescript-kendo/src/autocomplete.html)**, **[`autocomplete.ts`](https://github.com/aurelia-tools/atb-samples/blob/master/skeleton-typescript-kendo/src/autocomplete.ts)** and **[`autocomplete.css`](https://github.com/aurelia-tools/atb-samples/blob/master/skeleton-typescript-kendo/src/autocomplete.css)**).
+1. A new KendoUI Bridge component **[`Autocomplete`](http://aurelia-ui-toolkits.github.io/demo-kendo/#/samples/autocomplete-basic-use)** is added (**[`autocomplete.html`](https://github.com/aurelia-tools/atb-samples/blob/master/skeleton-typescript-kendo/src/autocomplete.html)**, **[`autocomplete.ts`](https://github.com/aurelia-tools/atb-samples/blob/master/skeleton-typescript-kendo/src/autocomplete.ts)** and **[`autocomplete.css`](https://github.com/aurelia-tools/atb-samples/blob/master/skeleton-typescript-kendo/src/autocomplete.css)**).
 
-5. The **[`app.ts`](https://github.com/aurelia-tools/atb-samples/blob/master/skeleton-typescript-kendo/src/app.ts)** has added the **[`autocomplete route`](https://github.com/aurelia-tools/atb-samples/blob/master/skeleton-typescript-kendo/src/app.ts#L12)**
+1. The **[`app.ts`](https://github.com/aurelia-tools/atb-samples/blob/master/skeleton-typescript-kendo/src/app.ts)** has added the **[`autocomplete route`](https://github.com/aurelia-tools/atb-samples/blob/master/skeleton-typescript-kendo/src/app.ts#L12)**
 
-6. The **[`config.js`](https://github.com/aurelia-tools/atb-samples/blob/master/skeleton-typescript-kendo/config.js)** file is **[updated](https://github.com/aurelia-tools/atb-samples/blob/master/skeleton-typescript-kendo/config.js#L8-L9)** to enable the application code access to the KendoUI SDK and KendoUI bridge.
+1. The **[`config.js`](https://github.com/aurelia-tools/atb-samples/blob/master/skeleton-typescript-kendo/config.js)** file is **[updated](https://github.com/aurelia-tools/atb-samples/blob/master/skeleton-typescript-kendo/config.js#L8-L9)** to enable the application code access to the KendoUI SDK and KendoUI bridge.
 
-7. (___very important___) Execute the command
+1. (___very important___) Execute the command:
+
 ```
 npm install @types/kendo-ui
 ```
-which will add all kendoui type information data to the application (see the next section below for more information on this step).
+    which will add all kendoui type information data to the application (see the next section below for more information on this step).
+
 ***
 
 Run this app (after being built by **`npm install` && `jspm install`**) with the command **`gulp watch`** - and you should see this:
@@ -102,3 +104,25 @@ Image 5
 Image 6
 </p>
 
+***
+
+## Bundling and hosting at GitHub [gh-pages](https://pages.github.com/)
+
+This section covers the information described in Aurelia document **[`Bundling an Aurelia JSPM Application`](http://aurelia.io/hub.html#/doc/article/aurelia/framework/latest/bundling-jspm/3)**, so we will just indicate the "pieces" described in that document.
+
+1. The bundling "strategy" is written in the **[`bundles.js`](https://github.com/aurelia-ui-toolkits/skeleton-navigation-typescript-kendo-bundled/blob/master/build/bundles.js)** file, which defines three bundles:
+
+    a)  **[`app-build`](https://github.com/aurelia-ui-toolkits/skeleton-navigation-typescript-kendo-bundled/blob/master/build/bundles.js#L3-L15)** containing app application files.
+
+    b) **[`plugins`](https://github.com/aurelia-ui-toolkits/skeleton-navigation-typescript-kendo-bundled/blob/master/build/bundles.js#L16-L28)** containing all Aurelia KendoUI bridge files
+
+    c) **[`kendo-build`](https://github.com/aurelia-ui-toolkits/skeleton-navigation-typescript-kendo-bundled/blob/master/build/bundles.js#L55-L63)** which contains all KendoUI SDK widgets.
+
+1. To create these bundles run the **`gulp bundle`** command in the application's root folder.
+
+1. In order to create the application ready for deployment, run **`gulp export`** command in the application's root folder.
+
+1. It is often useful to verify that this "exported" application runs correctly, before actually deploying it. In otder to do that change the current directory to **`export`** folder and invoke the **[http-server](https://www.npmjs.com/package/http-server)**, a simple, zero-configuration command-line http server. (If you do not have this utility installed, simply run **`npm install http-server -g`**).
+
+***
+***
