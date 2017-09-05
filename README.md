@@ -106,7 +106,9 @@ Image 6
 
 ***
 
-## Bundling and hosting at GitHub [gh-pages](https://pages.github.com/)
+## Bundling and deployment at GitHub [gh-pages](https://pages.github.com/)
+
+### Bundling
 
 This section covers the information described in Aurelia document **[`Bundling an Aurelia JSPM Application`](http://aurelia.io/hub.html#/doc/article/aurelia/framework/latest/bundling-jspm/3)**, so we will just indicate the "pieces" described in that document.
 
@@ -123,6 +125,21 @@ This section covers the information described in Aurelia document **[`Bundling a
 1. In order to create the application ready for deployment, run **`gulp export`** command in the application's root folder.
 
 1. It is often useful to verify that this "exported" application runs correctly, before actually deploying it. In otder to do that change the current directory to **`export`** folder and invoke the **[http-server](https://www.npmjs.com/package/http-server)**, a simple, zero-configuration command-line http server. (If you do not have this utility installed, simply run **`npm install http-server -g`**).
+
+### Deployment
+
+#### Preparing for deployment
+
+While Aurelia bundler makes the task of creating the collection of files that would have to be uploaded to the server host really simple - just execute the command **`gulp export`** in the application's root folder, there are some additional actions that need to be done correctly in order to make the deployment successful.
+
+Before running the **`gulp export`** command, you need to correctly define the content of the file **[`export.js`](https://github.com/aurelia-ui-toolkits/skeleton-navigation-typescript-kendo-bundled/blob/master/build/export.js)**, where:
+
+1. Section **[`list`](https://github.com/aurelia-ui-toolkits/skeleton-navigation-typescript-kendo-bundled/blob/master/build/export.js)** defines the files from your application than needs to be copied to the **`export`** folder without bundling. The reasons for not bundling them vary - files like `index.html`, `config.js`, `spm_packages/system.js` need to be present unmodified for the application bootstrap process, while other files are copied for other reasons. File `kendo-sdk/js/kendo.all.min.js` is the already bundled collection of all KendoUI widgets, so it makes no sense to bundle it again (note **[this line](https://github.com/aurelia-ui-toolkits/skeleton-navigation-typescript-kendo-bundled/blob/master/build/bundles.js#L57)** from the **[`kendo-build`](https://github.com/aurelia-ui-toolkits/skeleton-navigation-typescript-kendo-bundled/blob/master/build/bundles.js#L55-L63)** section of the **[`bundles.js`]()** file, that makes sure that `kendo-sdk/js/kendo.all.min.js` does not get bundle, so it has to be copied).
+
+1. Section **[`normalize`](https://github.com/aurelia-ui-toolkits/skeleton-navigation-typescript-kendo-bundled/blob/master/build/export.js#L27-L44)** containes the jspm packages that have unbundled resources that need to be exported. These files are in versioned folders and thus must be 'normalized' by jspm to get the proper path
+
+#### Deploying to gh-pages
+
 
 ***
 ***
