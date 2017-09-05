@@ -140,6 +140,17 @@ Before running the **`gulp export`** command, you need to correctly define the c
 
 #### Deploying to gh-pages
 
+This is really simple, due to the very elegant service offered by GitHub, described **[GitHUb Pages](https://pages.github.com/)** document. Just follow these steps:
+
+1. Start with preparing the GitHub Pages section of the **[settings](https://github.com/aurelia-ui-toolkits/skeleton-navigation-typescript-kendo-bundled/settings)** page of your application's repository (the page referenced in this sentence belongs to the application `skeleton-navigation-typescript-kendo-bundled` being described here). As shown in Image 7 below, we decided that the site will be built from the **`/docs`** folder in the master branch, to separate the actions related to bundling and exporting the code from the action of deploying the site, while still keeping everything in the same repository
+
+    <p align=center>
+      <img src="https://user-images.githubusercontent.com/2712405/30042542-e7bf26e8-91bf-11e7-886e-edb9c8d7d7db.png"></img>
+    <br><br>
+    Image 7
+    </p>
+
+1. Once you have the bundled application completely tested, you need to copy all the code from the `/export` folder into the `/docs` folder. It is important to realize that you need to create the "local override" of the root level [`.gitignore`](https://github.com/aurelia-ui-toolkits/skeleton-navigation-typescript-kendo-bundled/blob/master/.gitignore) document in order to allow the git synchronization process to upload the **[`jspm_packages`](https://github.com/aurelia-ui-toolkits/skeleton-navigation-typescript-kendo-bundled/tree/master/docs/jspm_packages)** folder
 
 ***
 ***
