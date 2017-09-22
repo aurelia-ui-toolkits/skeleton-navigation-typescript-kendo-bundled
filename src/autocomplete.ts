@@ -1,4 +1,4 @@
-import 'kendo-ui/js/kendo.all.min';
+import 'kendo-ui/js/kendo.autocomplete';
 
 // tslint:disable-next-line:class-name
 export class autocomplete {
